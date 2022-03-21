@@ -1,19 +1,29 @@
+import React from 'react';
+import styled from 'styled-components';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Header from './components/Header';
+import Nav from './components/Nav';
 import MainReview from './pages/MainReview';
 import DetailReview from './pages/DetailReview';
 import UploadReview from './pages/UploadReview';
-import React from 'react';
 
 function App() {
   return (
     <BrowserRouter>
-      <React.Fragment>
+      <Container>
+        <Header />
+        <Nav />
         <Routes>
           <Route path="/" exact element={<MainReview />} />
         </Routes>
-      </React.Fragment>
+      </Container>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  width: 780px;
+  margin: 0 auto;
+`;
