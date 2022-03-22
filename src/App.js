@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import MainReview from './pages/MainReview';
@@ -10,13 +12,15 @@ import UploadReview from './pages/UploadReview';
 function App() {
   return (
     <BrowserRouter>
-      <Container>
-        <Header />
-        <Nav />
-        <Routes>
-          <Route path="/" exact element={<MainReview />} />
-        </Routes>
-      </Container>
+      <Provider store={store}>
+        <Container>
+          <Header />
+          <Nav />
+          <Routes>
+            <Route path="/" exact element={<MainReview />} />
+          </Routes>
+        </Container>
+      </Provider>
     </BrowserRouter>
   );
 }
