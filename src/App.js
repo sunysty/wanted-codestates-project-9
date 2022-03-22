@@ -18,6 +18,7 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" exact element={<MainReview />} />
+            <Route path="/uploadReview" exact element={<UploadReview />} />
           </Routes>
         </Container>
       </Provider>

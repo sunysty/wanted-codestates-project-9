@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+  const navigate = useNavigate();
   return (
     <Container>
-      <div>특가</div>
-      <div>당일배송</div>
-      <div>디자이너</div>
-      <div>리뷰</div>
-      <div>이벤트</div>
+      <div onClick={() => navigate('/')}>리뷰보기</div>
+      <div onClick={() => navigate('/uploadReview')}>리뷰작성하기</div>
     </Container>
   );
 };
