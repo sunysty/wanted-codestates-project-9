@@ -164,16 +164,16 @@ const ReviewLayoutSelector = styled.div`
 const ReviewGrid = styled.div`
   display: grid;
   grid: auto-flow/repeat(3, 1fr);
-  grid-gap: 1rem;
-
-  img {
-    width: 100%;
-  }
+  grid-gap: 0.3rem;
 `;
 
 const GridCardBox = styled.div`
-  height: 35vh;
+  height: 30vh;
   overflow: hidden;
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
 `;
 
 const ReviewList = styled.div``;
@@ -202,12 +202,12 @@ const InfoBoxRight = styled.div`
 
 const ImageBox = styled.div`
   width: 100%;
-  height: 60vh;
+  height: 100%;
   overflow: hidden;
 
   img {
     width: 100%;
-    height: 150%;
+    object-position: 50% 50%;
   }
 `;
 
