@@ -206,6 +206,8 @@ const ImageBox = styled.div`
   overflow: hidden;
 
   img {
+    width: 100%;
+    height: 150%;
   }
 `;
 
@@ -238,6 +240,7 @@ const OptionBox = styled.div`
 const TextBox = styled.p`
   font-size: 1.3rem;
   font-weight: 600;
+  margin: 3rem 0;
 `;
 
 const ReviewSizeBox = styled.div`
