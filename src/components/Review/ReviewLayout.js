@@ -168,7 +168,7 @@ const ReviewGrid = styled.div`
 `;
 
 const GridCardBox = styled.div`
-  height: 30vh;
+  height: 20vh;
   overflow: hidden;
   img {
     object-fit: cover;

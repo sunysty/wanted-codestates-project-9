@@ -29,6 +29,6 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  width: 780px;
+  width: 500px;
   margin: 0 auto;
 `;

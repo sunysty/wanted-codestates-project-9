@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { addFilter } from '../../store/reviewSlice';
 import FilterItem from './FilterItem';
 
 const Filter = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [filterValue, setFilterValue] = useState('');
   const isOpenFilterModal = () => {
@@ -14,7 +17,7 @@ const Filter = () => {
   const onSubmitFilter = () => {
     setIsOpen(!isOpen);
     setFilterValue(filterValue);
-    console.log(filterValue);
+    dispatch(addFilter(filterValue));
   };
   const onRemoveFilterTag = () => {
     setFilterValue('');
@@ -82,7 +85,7 @@ const FilterModal = styled.div`
   form {
     padding: 1rem;
     box-sizing: border-box;
-    width: 780px;
+    width: 100%;
     background: #fff;
     position: fixed;
     bottom: 0;
