@@ -5,7 +5,6 @@ const reviewData = [
     contents: '생각보다 얇지만 그래도 지금 안에 이너로 입기에 좋은거 같아요 !',
     img: ['d55385c564b36cba5a499f34f6864b2e.jpeg'],
     like: 0,
-    comment: 0,
     share: 0,
     regdt: '2022-03-21 17:41:35',
     nickname: 'onz_orn',
