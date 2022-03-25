@@ -2,22 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Like from '../components/Review/Like';
-import Share from '../components/Review/Share';
-import Comment from '../components/Review/Comment';
+import Like from './Like';
+import Share from './Share';
+import Comment from './Comment';
 
 //리뷰상세이미지
 //리뷰댓글달기
 //좋아요
 //링크공유
 
-const DetailReview = () => {
-  const { id } = useParams();
-  const reviews = useSelector((state) => state.review);
-  const [currentReview] = reviews.filter((el) => el.id == id);
-  console.log(reviews, currentReview);
-  const imgUrl = 'https://i.balaan.io/review/';
+const ListReviewItem = ({ currentReview, imgUrl }) => {
   const currentUrl = window.location.href;
+  const { id } = useParams();
 
   return (
     <>
@@ -49,7 +45,7 @@ const DetailReview = () => {
   );
 };
 
-export default DetailReview;
+export default ListReviewItem;
 
 const InfoBox = styled.div`
   display: flex;
@@ -100,7 +96,6 @@ const EctBox = styled.div`
     padding-right: 0rem;
   }
 `;
-
 const TextBox = styled.p`
   font-size: 1.3rem;
   font-weight: 600;
