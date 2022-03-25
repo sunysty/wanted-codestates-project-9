@@ -25,11 +25,26 @@ const Filter = () => {
   return (
     <>
       {isOpen ? (
-        <>
+        <Flex>
           <FilterButton onClick={isOpenFilterModal}>
             <span>정렬</span>
             <i class="fa-solid fa-chevron-down"></i>
           </FilterButton>
+          <FilterTagBox>
+            <FilterTagItem>
+              <span>전체</span>
+            </FilterTagItem>
+            {filterValue === '' ? (
+              <FilterTagItem>
+                <span>최신순</span>
+              </FilterTagItem>
+            ) : (
+              <FilterTagItem onClick={onRemoveFilterTag}>
+                <span>{filterValue}</span>
+                <i class="fa-solid fa-minus"></i>
+              </FilterTagItem>
+            )}
+          </FilterTagBox>
           <FilterModal onClick={isOpenFilterModal}>
             <form onClick={(e) => e.stopPropagation()}>
               <span onClick={isOpenFilterModal}>정렬</span>
@@ -41,38 +56,42 @@ const Filter = () => {
               </button>
             </form>
           </FilterModal>
-        </>
+        </Flex>
       ) : (
-        <>
+        <Flex>
           <FilterButton onClick={isOpenFilterModal}>
             <span>정렬</span>
             <i class="fa-solid fa-chevron-down"></i>
           </FilterButton>
           <FilterTagBox>
-            <div>
+            <FilterTagItem>
+              <span>전체</span>
+            </FilterTagItem>
+            {filterValue === '' ? (
               <FilterTagItem>
-                <span>전체</span>
+                <span>최신순</span>
               </FilterTagItem>
-              {filterValue === '' ? (
-                <FilterTagItem>
-                  <span>최신순</span>
-                </FilterTagItem>
-              ) : (
-                <FilterTagItem onClick={onRemoveFilterTag}>
-                  <span>{filterValue}</span>
-                  <i class="fa-solid fa-minus"></i>
-                </FilterTagItem>
-              )}
-            </div>
-            <i class="fa-solid fa-arrow-rotate-left"></i>
+            ) : (
+              <FilterTagItem onClick={onRemoveFilterTag}>
+                <span>{filterValue}</span>
+                <i class="fa-solid fa-minus"></i>
+              </FilterTagItem>
+            )}
           </FilterTagBox>
-        </>
+        </Flex>
       )}
     </>
   );
 };
 
 export default Filter;
+
+const Flex = styled.div`
+  display: flex;
+  .openButton {
+    background: #blue;
+  }
+`;
 
 const FilterModal = styled.div`
   width: 100vw;
@@ -112,8 +131,10 @@ const FilterModal = styled.div`
 `;
 
 const FilterButton = styled.div`
-  display: inline-block;
-  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
   border: 1px solid #868ceb;
   border-radius: 2rem;
   cursor: pointer;
@@ -140,11 +161,6 @@ const FilterButton = styled.div`
 
 const FilterTagBox = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  div {
-    display: flex;
-  }
 `;
 
 const FilterTagItem = styled.div`
