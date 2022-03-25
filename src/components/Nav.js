@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const navigate = useNavigate();
+  const [selected, setSelected] = useState();
   return (
     <Container>
-      <div onClick={() => navigate('/')}>리뷰보기</div>
-      <div onClick={() => navigate('/uploadReview')}>리뷰작성하기</div>
+      <div
+        onClick={() => navigate('/') & setSelected(true)}
+        className={selected ? 'show' : null}
+      >
+        리뷰보기
+      </div>
+      <div
+        onClick={() => navigate('/uploadReview') & setSelected(false)}
+        className={selected ? null : 'upload'}
+      >
+        리뷰작성하기
+      </div>
     </Container>
   );
 };
@@ -19,6 +30,7 @@ const Container = styled.div`
   height: 3rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid #ccc;
+  font-weight: bold;
   div {
     display: flex;
     justify-content: space-around;
@@ -26,8 +38,11 @@ const Container = styled.div`
     width: 100%;
     height: 3rem;
     cursor: pointer;
-    :hover {
-      border-bottom: 2px solid black;
-    }
+  }
+  .show {
+    border-bottom: 2px solid black;
+  }
+  .upload {
+    border-bottom: 2px solid black;
   }
 `;
